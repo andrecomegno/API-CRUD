@@ -1,11 +1,13 @@
 export class FilmeEntity {
+    id: string;
     nome: string;
     duracao: number;
     sinopse: string;
     ano: number;
     genero: string;
 
-    constructor(nome: string, duracao: number, sinopse: string, ano: number, genero: string) {
+    constructor(id: string, nome: string, duracao: number, sinopse: string, ano: number, genero: string) {
+        this.id = id;
         this.nome = nome;
         this.duracao = duracao;
         this.sinopse = sinopse;

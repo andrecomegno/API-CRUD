@@ -33,7 +33,9 @@ $ npm install
 ```bash
 # iniciar o servidor 
 $ npm run start
+```
 
+```bash
 # ativação de recarregamento automático
 $ npm run start:dev
 ```
@@ -44,23 +46,28 @@ $ npm run start:dev
 # inclusão
 POST http://localhost:3000/filmes
 Selecione Body, raw, json
-
+```
+```bash
 # consultar
 GET http://localhost:3000/filmes
 Selecione Params
-
+```
+```bash
 # exclusão
 DELET http://localhost:3000/filmes/{"id do filme"}
 Selecione Params
-
+```
+```bash
 # compartilhar
 GET http://localhost:3000/filmes/{"id do filme"}/compartilhar
 Selecione Params
-
+```
+```bash
 # alteração
 PUT http://localhost:3000/filmes/{"id do filme"}
 Selecione Params
-
+```
+```bash
 # json para testar
 {
   "nome": "300 Spartans",

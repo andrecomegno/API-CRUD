@@ -24,16 +24,9 @@ export class FilmesArmazenados{
         return filme;
     }
 
-    private buscaPorID(id: string){
-        const possivelFilme = this.#filme.find(
-            filmeSalvo => filmeSalvo.id === id
-        )
-
-        if (!possivelFilme){
-            throw new Error('Filme não encontrado')
-        }
-        
-        return possivelFilme;
+    compartilharFilme(id: string): string {
+        const filme = this.buscaPorID(id);
+        return filme.compartilhar();
     }
 
     async removeFilme(id: string){
@@ -44,6 +37,18 @@ export class FilmesArmazenados{
         )
 
         return filme;
+    }
+
+    private buscaPorID(id: string){
+        const possivelFilme = this.#filme.find(
+            filmeSalvo => filmeSalvo.id === id
+        )
+
+        if (!possivelFilme){
+            throw new Error('Filme não Encontrado =/')
+        }
+        
+        return possivelFilme;
     }
 
     get Filmes(){        

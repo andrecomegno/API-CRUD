@@ -15,7 +15,9 @@ export class FilmeEntity {
         this.genero = genero;
     }
 
-    compartilhar(): string {
-        return `Estou assistindo o filme ${this.nome} que conta a seguinte história: ${this.sinopse}, foi lançado em ${this.ano} e tem duração de ${this.duracao} minutos. Assista também!!`;
+    compartilhar(): any {
+        return {
+            mensagem: `Estou assistindo o filme ${this.nome} que conta a seguinte história: ${this.sinopse}, foi lançado em ${this.ano} e tem duração de ${this.duracao} minutos. Assista também!!`
+        };
     }
 }

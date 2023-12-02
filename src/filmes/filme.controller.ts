@@ -1,4 +1,5 @@
-import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
+import { AtualizarFilmeDTO } from './dto/atualizarFilme.dto';
 import { FilmeDTO } from './dto/filme.dto';
 import { FilmesArmazenados } from './filme.dm';
 import { ListaFilmeDTO } from './dto/listaFilme.dto';
@@ -27,6 +28,11 @@ export class FilmeController {
         return listaRetorno;
     }
 
+    @Get(':id/compartilhar')
+    compartilharFilme(@Param('id') id: string): string {
+        return this.clsFilmeArmazenados.compartilharFilme(id);
+    }
+
     @Post()
     async CriaFilme(@Body() dadosFilme: FilmeDTO){
         var filme = new FilmeEntity(
@@ -41,10 +47,20 @@ export class FilmeController {
         this.clsFilmeArmazenados.AdicionarFilme(filme);        
         var retorno={
             id: filme.id,
-            message:'Filme Criado'
+            message:'Filme Criado =)'
         }
         
         return retorno
+    }
+
+    @Put('/:id')
+    async atualizaFilme(@Param('id') id: string, @Body() novosDados: AtualizarFilmeDTO){
+        const filmeAtualizado = await this.clsFilmeArmazenados.atualizaFilme(id, novosDados)
+
+        return{
+            usuario: filmeAtualizado,
+            message: 'Filme Atualizado com Sucesso ! ;)'
+        }
     }
 
     @Delete('/:id')
@@ -53,7 +69,7 @@ export class FilmeController {
 
         return{
             filme: filmeRemovido,
-            message: 'Filme removido'
+            message: 'Filme removido com Sucesso :S'
         }
     }
 }

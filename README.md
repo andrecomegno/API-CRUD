@@ -60,9 +60,7 @@ Selecione Params
 # alteração
 PUT http://localhost:3000/filmes/{"id do filme"}
 Selecione Params
-```
 
-```bash
 # json para testar
 {
   "nome": "300 Spartans",
